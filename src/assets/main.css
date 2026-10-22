@@ -1,0 +1,54 @@
+@import 'tailwindcss';
+@config '../../tailwind.config.js';
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-surface font-sans text-ink antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight;
+  }
+  ::selection {
+    @apply bg-brand-200 text-brand-950;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .text-gradient {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+  .glass {
+    @apply border border-white/60 bg-white/70 backdrop-blur-xl;
+  }
+  /* Drag & drop feedback (vuedraggable / SortableJS) */
+  .drag-ghost {
+    @apply opacity-40;
+  }
+  .drag-chosen {
+    @apply shadow-lift;
+  }
+}
